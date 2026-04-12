@@ -506,7 +506,41 @@ const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
   );
 };
 
+const TELEGRAM_BOT_TOKEN = '8271735853:AAEGxJLUWavtBqmNl0e_CZOzHUl3CNjgkxA';
+const TELEGRAM_CHAT_ID = '-5177757740';
+
 const Contact = () => {
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [goal, setGoal] = React.useState('Weight Loss');
+  const [message, setMessage] = React.useState('');
+  const [submitted, setSubmitted] = React.useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const timestamp = new Date().toLocaleString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric',
+      hour: 'numeric', minute: '2-digit', hour12: true, timeZoneName: 'short',
+    });
+
+    const text =
+      '🔔 New Inquiry from Glenn\'s Site\n\n' +
+      '👤 Name: ' + name + '\n' +
+      '📧 Email: ' + email + '\n' +
+      '🎯 Goal: ' + goal + '\n' +
+      '💬 Message: ' + message + '\n' +
+      '🕐 Time: ' + timestamp;
+
+    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text }),
+    }).catch(() => { /* Telegram failure is silent — form still succeeds */ });
+
+    setSubmitted(true);
+  };
+
   return (
     <section id="contact" className="py-24 bg-[#050505]">
       <div className="max-w-7xl mx-auto px-6">
@@ -517,7 +551,7 @@ const Contact = () => {
               <p className="text-gray-400 text-lg mb-10 leading-relaxed">
                 Want a custom meal plan with macros, a personalized gym program, athletic performance coaching, or something else entirely? Fill out the form and Glenn will get back to you personally to build something around your specific goals.
               </p>
-              
+
               <div className="space-y-6">
                 <a href="mailto:glennbyrdbusiness@gmail.com" className="flex items-center gap-4 group">
                   <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-gold transition-colors">
@@ -540,34 +574,60 @@ const Contact = () => {
               </div>
             </div>
 
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Name</label>
-                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors" placeholder="John Doe" />
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center text-center space-y-4">
+                <CheckCircle2 className="text-gold w-16 h-16" />
+                <h3 className="font-display text-2xl font-extrabold">Message Sent!</h3>
+                <p className="text-gray-400">Glenn will get back to you personally. Stay ready.</p>
+              </div>
+            ) : (
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Name</label>
+                    <input
+                      type="text" required
+                      value={name} onChange={(e) => setName(e.target.value)}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors"
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Email</label>
+                    <input
+                      type="email" required
+                      value={email} onChange={(e) => setEmail(e.target.value)}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors"
+                      placeholder="john@example.com"
+                    />
+                  </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Email</label>
-                  <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors" placeholder="john@example.com" />
+                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Goal</label>
+                  <select
+                    value={goal} onChange={(e) => setGoal(e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors appearance-none"
+                  >
+                    <option className="bg-black">Weight Loss</option>
+                    <option className="bg-black">Strength Training</option>
+                    <option className="bg-black">Athletic Performance</option>
+                    <option className="bg-black">Bodybuilding</option>
+                  </select>
                 </div>
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Goal</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors appearance-none">
-                  <option className="bg-black">Weight Loss</option>
-                  <option className="bg-black">Strength Training</option>
-                  <option className="bg-black">Athletic Performance</option>
-                  <option className="bg-black">Bodybuilding</option>
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Message</label>
-                <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors" placeholder="Tell me about your journey..."></textarea>
-              </div>
-              <button className="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-gold transition-all transform hover:scale-[1.02]">
-                Send Inquiry
-              </button>
-            </form>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Message</label>
+                  <textarea
+                    rows={4} required
+                    value={message} onChange={(e) => setMessage(e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors"
+                    placeholder="Tell me about your journey..."
+                  ></textarea>
+                </div>
+                <button type="submit" className="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-gold transition-all transform hover:scale-[1.02]">
+                  Send Inquiry
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

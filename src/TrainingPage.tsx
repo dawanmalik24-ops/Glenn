@@ -56,22 +56,35 @@ const Hero = () => (
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent" />
     </div>
     <div className="relative z-10 max-w-7xl mx-auto px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest uppercase mb-6 text-gold">
-          In-Person Training · The Forum PCM
-        </span>
-        <h1 className="font-display text-6xl md:text-8xl font-extrabold leading-[0.9] mb-6 tracking-tighter">
-          THE TRAINING <br />
-          <span className="text-gradient-gold">EXPERIENCE.</span>
-        </h1>
-        <p className="text-xl text-gray-300 max-w-2xl leading-relaxed">
-          What it really means to train with Glenn — from the first session to the last rep.
-        </p>
-      </motion.div>
+      <div className="flex items-start justify-between gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest uppercase mb-6 text-gold">
+            In-Person Training · The Forum PCM
+          </span>
+          <h1 className="font-display text-6xl md:text-8xl font-extrabold leading-[0.9] mb-6 tracking-tighter">
+            THE TRAINING <br />
+            <span className="text-gradient-gold">EXPERIENCE.</span>
+          </h1>
+          <p className="text-xl text-gray-300 max-w-2xl leading-relaxed">
+            What it really means to train with Glenn — from the first session to the last rep.
+          </p>
+        </motion.div>
+        <motion.a
+          href="https://theforumathleticclub.com/ponce-city-market-schedule"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="shrink-0 bg-gold hover:bg-gold-light text-black font-bold px-6 py-3 rounded-full text-sm transition-all transform hover:scale-[1.03] whitespace-nowrap"
+        >
+          Reserve Your Spot
+        </motion.a>
+      </div>
     </div>
   </section>
 );
@@ -79,50 +92,60 @@ const Hero = () => (
 const Philosophy = () => (
   <section className="py-24 bg-black">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">
-            TRAINING <span className="text-gold">PHILOSOPHY.</span>
-          </h2>
-          <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
-            <p>
-              Glenn's philosophy is simple: <span className="text-white font-semibold">movement is medicine</span>. Every session is built on the belief that the body has an extraordinary capacity to heal, adapt, and perform — given the right stimulus, structure, and support.
-            </p>
-            <p>
-              He doesn't believe in cookie-cutter programs. Training is personal. Your history, your injuries, your goals, your schedule — all of it shapes the plan. The result is a program that fits your life, not the other way around.
-            </p>
-            <p>
-              Equally important to Glenn is the mental side of fitness. He draws directly from his own experience overcoming trauma and depression to meet clients where they are — and push them past where they thought they could go.
-            </p>
-          </div>
-        </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-3xl mx-auto text-center mb-10"
+      >
+        <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">
+          TRAINING <span className="text-gold">PHILOSOPHY.</span>
+        </h2>
+        <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
+          <p>
+            Glenn's philosophy is simple: <span className="text-white font-semibold">movement is medicine</span>. Every session is built on the belief that the body has an extraordinary capacity to heal, adapt, and perform — given the right stimulus, structure, and support.
+          </p>
+          <p>
+            He doesn't believe in cookie-cutter programs. Training is personal. Your history, your injuries, your goals, your schedule — all of it shapes the plan. The result is a program that fits your life, not the other way around.
+          </p>
+          <p>
+            Equally important to Glenn is the mental side of fitness. He draws directly from his own experience overcoming trauma and depression to meet clients where they are — and push them past where they thought they could go.
+          </p>
+        </div>
+      </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 gap-6"
+      <div className="flex justify-center mb-14">
+        <a
+          href="https://theforumathleticclub.com/ponce-city-market-schedule"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-gold hover:bg-gold-light text-black font-bold px-8 py-4 rounded-full text-sm transition-all transform hover:scale-[1.03]"
         >
-          {[
-            { icon: <Dumbbell className="text-gold" size={28} />, title: "Strength-First", desc: "Every program anchors around building real, functional strength that carries over into daily life." },
-            { icon: <Zap className="text-gold" size={28} />, title: "Progressive Overload", desc: "Systematic, measurable increases in demand so your body never plateaus and always adapts." },
-            { icon: <Users className="text-gold" size={28} />, title: "Mind-Body Integration", desc: "Mental clarity and emotional resilience are trained alongside physical performance." },
-            { icon: <Clock className="text-gold" size={28} />, title: "Consistency Over Intensity", desc: "Long-term results come from showing up. Glenn builds habits, not just workouts." },
-          ].map((item) => (
-            <div key={item.title} className="p-6 rounded-2xl bg-white/5 border border-white/10">
-              <div className="mb-4">{item.icon}</div>
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </motion.div>
+          Reserve Your Spot
+        </a>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+      >
+        {[
+          { icon: <Dumbbell className="text-gold" size={28} />, title: "Strength-First", desc: "Every program anchors around building real, functional strength that carries over into daily life." },
+          { icon: <Zap className="text-gold" size={28} />, title: "Progressive Overload", desc: "Systematic, measurable increases in demand so your body never plateaus and always adapts." },
+          { icon: <Users className="text-gold" size={28} />, title: "Mind-Body Integration", desc: "Mental clarity and emotional resilience are trained alongside physical performance." },
+          { icon: <Clock className="text-gold" size={28} />, title: "Consistency Over Intensity", desc: "Long-term results come from showing up. Glenn builds habits, not just workouts." },
+        ].map((item) => (
+          <div key={item.title} className="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div className="mb-4">{item.icon}</div>
+            <h3 className="font-bold text-white mb-2">{item.title}</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </motion.div>
     </div>
   </section>
 );

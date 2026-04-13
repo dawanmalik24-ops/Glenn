@@ -397,7 +397,127 @@ const Results = () => {
   );
 };
 
+const CoachingInquiryModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [phone, setPhone] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const [submitted, setSubmitted] = React.useState(false);
+
+  const handleClose = () => {
+    onClose();
+    setTimeout(() => {
+      setName(''); setEmail(''); setPhone(''); setMessage('');
+      setSubmitted(false);
+    }, 300);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const timestamp = new Date().toLocaleString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric',
+      hour: 'numeric', minute: '2-digit', hour12: true, timeZoneName: 'short',
+    });
+    const text =
+      '💪 New Coaching Inquiry\n' +
+      '👤 Name: ' + name + '\n' +
+      '📧 Email: ' + email + '\n' +
+      '📱 Phone: ' + phone + '\n' +
+      '💬 Message: ' + message + '\n' +
+      '🕐 Time: ' + timestamp;
+    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text }),
+    }).catch(() => {});
+    setSubmitted(true);
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        onClick={handleClose}
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        className="relative w-full max-w-md bg-[#0a0a0a] border border-gold/30 rounded-3xl p-8 shadow-[0_0_50px_rgba(212,175,55,0.15)]"
+      >
+        <button
+          onClick={handleClose}
+          className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
+        >
+          <X size={24} />
+        </button>
+
+        {submitted ? (
+          <div className="text-center py-8">
+            <CheckCircle2 className="text-gold w-16 h-16 mx-auto mb-4" />
+            <h3 className="font-display text-2xl font-extrabold mb-2">You're In!</h3>
+            <p className="text-gray-400">Glenn will be in touch soon 🙌</p>
+          </div>
+        ) : (
+          <>
+            <h3 className="font-display text-2xl font-extrabold mb-6">Inquire for Coaching</h3>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500 block mb-1">Name</label>
+                <input
+                  type="text" required
+                  value={name} onChange={(e) => setName(e.target.value)}
+                  placeholder="John Doe"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors text-sm"
+                />
+              </div>
+              <div>
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500 block mb-1">Email</label>
+                <input
+                  type="email" required
+                  value={email} onChange={(e) => setEmail(e.target.value)}
+                  placeholder="john@example.com"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors text-sm"
+                />
+              </div>
+              <div>
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500 block mb-1">Phone Number</label>
+                <input
+                  type="tel" required
+                  value={phone} onChange={(e) => setPhone(e.target.value)}
+                  placeholder="404-555-0100"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors text-sm"
+                />
+              </div>
+              <div>
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-500 block mb-1">Message</label>
+                <textarea
+                  rows={3} required
+                  value={message} onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Tell Glenn about your goals..."
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition-colors text-sm"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-gold text-black font-bold py-4 rounded-xl hover:bg-gold-light transition-all transform hover:scale-[1.02] mt-2"
+              >
+                Send Inquiry
+              </button>
+            </form>
+          </>
+        )}
+      </motion.div>
+    </div>
+  );
+};
+
 const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
+  const [isCoachingModalOpen, setIsCoachingModalOpen] = React.useState(false);
+
   const offers = [
     {
       title: "1-on-1 Coaching",
@@ -406,8 +526,8 @@ const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
       description: "A comprehensive, personalized approach to fitness. We tackle your training, nutrition, and mindset as a complete package.",
       features: ["Weekly Check-ins", "Nutrition Strategy", "24/7 Messaging Support", "Monthly Progress Reviews"],
       cta: "Inquire for Coaching",
-      link: "https://buy.stripe.com/placeholder",
-      highlight: false
+      highlight: true,
+      onCtaClick: () => setIsCoachingModalOpen(true),
     },
     {
       title: "In-Person Training",
@@ -418,91 +538,88 @@ const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
       cta: "Book a Session",
       link: "https://theforumathleticclub.com/ponce-city-market-schedule",
       target: "_blank",
-      highlight: true
-    },
-    {
-      title: "The Movement Program",
-      location: "Digital Course",
-      price: "Coming Soon",
-      description: "A structured, self-paced fitness program designed to take you from beginner to advanced athlete. Coming soon.",
-      features: ["Video Demonstrations", "Progressive Overload Guide", "Mobile App Access", "Community Forum"],
-      cta: "Join the Waitlist",
-      link: "https://buy.stripe.com/placeholder",
       highlight: false,
-      isComingSoon: true
-    }
+    },
   ];
 
   return (
-    <section id="offerings" className="py-24 bg-black">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-4">CHOOSE YOUR PATH</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            Invest in yourself. Select the level of support that matches your ambition.
-          </p>
-        </div>
+    <>
+      <CoachingInquiryModal isOpen={isCoachingModalOpen} onClose={() => setIsCoachingModalOpen(false)} />
+      <section id="offerings" className="py-24 bg-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl md:text-5xl font-extrabold mb-4">CHOOSE YOUR PATH</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+              Invest in yourself. Select the level of support that matches your ambition.
+            </p>
+          </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {offers.map((offer) => (
-            <div 
-              key={offer.title}
-              className={`relative p-8 rounded-3xl border flex flex-col ${
-                offer.highlight 
-                  ? "bg-gold/5 border-gold shadow-[0_0_40px_rgba(212,175,55,0.15)]" 
-                  : "bg-white/5 border-white/10"
-              }`}
-            >
-              {offer.highlight && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-black px-4 py-1 rounded-full text-xs font-bold uppercase">
-                  Most Popular
-                </div>
-              )}
-              {offer.isComingSoon && (
-                <div className="absolute top-4 right-4 bg-white/10 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
-                  Coming Soon
-                </div>
-              )}
-              
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-1">{offer.title}</h3>
-                <p className="text-gold text-sm font-medium flex items-center gap-1 mb-2">
-                  <MapPin size={14} /> {offer.location}
-                </p>
-                <p className="text-white font-display text-xl font-bold tracking-tight">{offer.price}</p>
-              </div>
-
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                {offer.description}
-              </p>
-
-              <ul className="space-y-4 mb-10 flex-grow">
-                {offer.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm text-gray-300">
-                    <CheckCircle2 size={18} className="text-gold shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={offer.link}
-                onClick={offer.onClick}
-                target={offer.target}
-                rel={offer.target === "_blank" ? "noopener noreferrer" : undefined}
-                className={`w-full py-4 rounded-xl font-bold text-center transition-all ${
-                  offer.highlight 
-                    ? "bg-gold text-black hover:bg-gold-light" 
-                    : "bg-white/10 text-white hover:bg-white/20"
+          <div className="grid lg:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            {offers.map((offer) => (
+              <div
+                key={offer.title}
+                className={`relative p-8 rounded-3xl border flex flex-col ${
+                  offer.highlight
+                    ? "bg-gold/5 border-gold shadow-[0_0_40px_rgba(212,175,55,0.15)]"
+                    : "bg-white/5 border-white/10"
                 }`}
               >
-                {offer.cta}
-              </a>
-            </div>
-          ))}
+                {offer.highlight && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-black px-4 py-1 rounded-full text-xs font-bold uppercase">
+                    Most Popular
+                  </div>
+                )}
+
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold mb-1">{offer.title}</h3>
+                  <p className="text-gold text-sm font-medium flex items-center gap-1 mb-2">
+                    <MapPin size={14} /> {offer.location}
+                  </p>
+                  <p className="text-white font-display text-xl font-bold tracking-tight">{offer.price}</p>
+                </div>
+
+                <p className="text-gray-400 mb-8 leading-relaxed">{offer.description}</p>
+
+                <ul className="space-y-4 mb-10 flex-grow">
+                  {offer.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3 text-sm text-gray-300">
+                      <CheckCircle2 size={18} className="text-gold shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                {offer.onCtaClick ? (
+                  <button
+                    onClick={offer.onCtaClick}
+                    className={`w-full py-4 rounded-xl font-bold text-center transition-all ${
+                      offer.highlight
+                        ? "bg-gold text-black hover:bg-gold-light"
+                        : "bg-white/10 text-white hover:bg-white/20"
+                    }`}
+                  >
+                    {offer.cta}
+                  </button>
+                ) : (
+                  <a
+                    href={offer.link}
+                    target={offer.target}
+                    rel={offer.target === "_blank" ? "noopener noreferrer" : undefined}
+                    className={`w-full py-4 rounded-xl font-bold text-center transition-all ${
+                      offer.highlight
+                        ? "bg-gold text-black hover:bg-gold-light"
+                        : "bg-white/10 text-white hover:bg-white/20"
+                    }`}
+                  >
+                    {offer.cta}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

@@ -846,9 +846,9 @@ export default function App() {
         <Hero />
         <SocialProofBar />
         <About />
+        <Offerings onBookSession={() => setIsPromoOpen(true)} />
         <Services />
         <Results />
-        <Offerings onBookSession={() => setIsPromoOpen(true)} />
         <Contact />
       </main>
       <Footer />

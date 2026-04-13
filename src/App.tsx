@@ -266,14 +266,6 @@ const About = () => {
               </div>
             </div>
 
-            <div className="mt-10">
-              <Link
-                to="/training"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 hover:bg-white/5 font-bold text-lg transition-all"
-              >
-                Learn More <ArrowRight size={20} />
-              </Link>
-            </div>
           </motion.div>
         </div>
       </div>
@@ -616,6 +608,15 @@ const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="flex justify-center mt-10">
+            <Link
+              to="/training"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 hover:bg-white/5 font-bold text-lg transition-all"
+            >
+              Learn More <ArrowRight size={20} />
+            </Link>
           </div>
         </div>
       </section>

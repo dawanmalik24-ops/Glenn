@@ -20,7 +20,6 @@ import {
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ChatBot from "./ChatBot";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -853,7 +852,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <ChatBot />
     </div>
   );
 }

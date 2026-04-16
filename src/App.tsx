@@ -764,8 +764,19 @@ const Footer = () => {
           <p className="text-gray-500 text-sm">© 2026 Glenn Byrd. All rights reserved.</p>
         </div>
         
-        <div className="flex gap-6">
+        <div className="flex items-center gap-6">
           <a href="https://www.instagram.com/thegreatglenn/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gold transition-colors"><Instagram size={20} /></a>
+          <p className="text-sm text-white">
+            Built by{" "}
+            <a
+              href="https://dawanswebstudio.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold hover:text-gold-light transition-colors"
+            >
+              Dawan Studio
+            </a>
+          </p>
           <a href="mailto:glennbyrdbusiness@gmail.com" className="text-gray-500 hover:text-gold transition-colors"><Mail size={20} /></a>
         </div>
         

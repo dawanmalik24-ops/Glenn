@@ -5,7 +5,7 @@
 
 import * as React from "react";
 import { useState, useRef, useEffect } from "react";
-import { GoogleGenAI } from "@google/genai";
+import Anthropic from "@anthropic-ai/sdk";
 import { X, Send, MessageCircle, Loader2 } from "lucide-react";
 
 const SYSTEM_PROMPT = `You are Glenn Byrd's personal fitness assistant on his website. You help visitors learn about Glenn's services and direct them to take action. Be friendly, motivating and concise.
@@ -26,8 +26,6 @@ interface Message {
   role: "user" | "assistant";
   text: string;
 }
-
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,19 +61,27 @@ export default function ChatBot() {
     setIsLoading(true);
 
     try {
-      const history = updatedMessages.slice(0, -1).map((m) => ({
-        role: m.role === "user" ? "user" as const : "model" as const,
-        parts: [{ text: m.text }],
-      }));
-
-      const chat = ai.chats.create({
-        model: "gemini-2.0-flash",
-        history,
-        config: { systemInstruction: SYSTEM_PROMPT },
+      const client = new Anthropic({
+        apiKey: import.meta.env.VITE_ANTHROPIC_API_KEY ?? "",
+        dangerouslyAllowBrowser: true,
       });
 
-      const response = await chat.sendMessage({ message: text });
-      const reply = response.text ?? "I'm not sure — please reach out to Glenn directly at glennbyrdbusiness@gmail.com!";
+      const history = updatedMessages.slice(0, -1).map((m) => ({
+        role: m.role as "user" | "assistant",
+        content: m.text,
+      }));
+
+      const response = await client.messages.create({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1024,
+        system: SYSTEM_PROMPT,
+        messages: [...history, { role: "user", content: text }],
+      });
+
+      const reply =
+        response.content[0]?.type === "text"
+          ? response.content[0].text
+          : "I'm not sure — please reach out to Glenn directly at glennbyrdbusiness@gmail.com!";
 
       setMessages((prev) => [...prev, { role: "assistant", text: reply }]);
     } catch {

@@ -17,6 +17,15 @@
   body {
     @apply bg-[#050505] text-white font-sans antialiased;
   }
+  canvas {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: -1 !important;
+    pointer-events: none;
+  }
 }
 
 @layer utilities {

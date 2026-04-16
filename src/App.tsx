@@ -840,7 +840,7 @@ export default function App() {
   const [isPromoOpen, setIsPromoOpen] = useState(false);
 
   return (
-    <div className="selection:bg-gold selection:text-black">
+    <div className="relative z-[1] selection:bg-gold selection:text-black">
       <PromoModal isOpen={isPromoOpen} onClose={() => setIsPromoOpen(false)} />
       <Navbar />
       <main>

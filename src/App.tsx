@@ -769,12 +769,12 @@ const Footer = () => {
           <p className="text-sm text-white">
             Built by{" "}
             <a
-              href="https://dawanswebstudio.netlify.app"
+              href="https://404webstudio.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold hover:text-gold-light transition-colors"
             >
-              Dawan Studio
+              404 Studio
             </a>
           </p>
           <a href="mailto:glennbyrdbusiness@gmail.com" className="text-gray-500 hover:text-gold transition-colors"><Mail size={20} /></a>

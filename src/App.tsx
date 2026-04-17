@@ -158,10 +158,13 @@ const Hero = () => {
           <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest uppercase mb-6 text-gold">
             ACE-Certified Personal Trainer
           </span>
-          <h1 className="font-display text-6xl md:text-8xl font-extrabold leading-[0.9] mb-6 tracking-tighter">
-            GET STRONGER, LEANER, AND MORE <br />
-            <span className="text-gradient-gold">ATHLETIC IN 8–12 WEEKS.</span>
+          <h1 className="font-display text-6xl md:text-8xl font-extrabold leading-[0.9] mb-4 tracking-tighter">
+            MOVEMENT IS <br />
+            <span className="text-gradient-gold">MEDICINE.</span>
           </h1>
+          <p className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Get Stronger, Leaner, and More Athletic in 8–12 Weeks.
+          </p>
           <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
             1-on-1 personal training at The Forum Athletic Club with ACE-certified coach Glenn Byrd.
           </p>

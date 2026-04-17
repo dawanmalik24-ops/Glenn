@@ -517,7 +517,7 @@ const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
     {
       title: "1-on-1 Coaching",
       location: "Remote or Hybrid",
-      price: "Starting at $299/mo",
+      price: "Inquire for Rates",
       description: "A comprehensive, personalized approach to fitness. We tackle your training, nutrition, and mindset as a complete package.",
       features: ["Weekly Check-ins", "Nutrition Strategy", "24/7 Messaging Support", "Monthly Progress Reviews"],
       cta: "Inquire for Coaching",
@@ -527,7 +527,7 @@ const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
     {
       title: "In-Person Training",
       location: "The Forum Athletic Club, PCM",
-      price: "Inquire for Rates",
+      price: "",
       description: "Direct, hands-on coaching at Atlanta's premier fitness destination. Perfect for those who want immediate feedback and high-intensity sessions.",
       features: ["Customized Workout Plans", "Form Correction & Safety", "Access to Elite Equipment", "PCM Location Convenience"],
       cta: "Book a Session",
@@ -570,7 +570,7 @@ const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
                   <p className="text-gold text-sm font-medium flex items-center gap-1 mb-2">
                     <MapPin size={14} /> {offer.location}
                   </p>
-                  <p className="text-white font-display text-xl font-bold tracking-tight">{offer.price}</p>
+                  {offer.price && <p className="text-white font-display text-xl font-bold tracking-tight">{offer.price}</p>}
                 </div>
 
                 <p className="text-gray-400 mb-8 leading-relaxed">{offer.description}</p>

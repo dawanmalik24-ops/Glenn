@@ -159,11 +159,11 @@ const Hero = () => {
             ACE-Certified Personal Trainer
           </span>
           <h1 className="font-display text-6xl md:text-8xl font-extrabold leading-[0.9] mb-6 tracking-tighter">
-            MOVEMENT IS <br />
-            <span className="text-gradient-gold">MEDICINE.</span>
+            GET STRONGER, LEANER, AND MORE <br />
+            <span className="text-gradient-gold">ATHLETIC IN 8–12 WEEKS.</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
-            Transforming bodies and minds through strength training, athletic conditioning, and the power of resilience.
+            1-on-1 personal training at The Forum Athletic Club with ACE-certified coach Glenn Byrd.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a 

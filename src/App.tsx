@@ -531,6 +531,7 @@ const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
       description: "Direct, hands-on coaching at Atlanta's premier fitness destination. Perfect for those who want immediate feedback and high-intensity sessions.",
       features: ["Customized Workout Plans", "Form Correction & Safety", "Access to Elite Equipment", "PCM Location Convenience"],
       cta: "Book a Session",
+      note: "Most clients start with Fast Twitch Intro class before committing to coaching.",
       link: "https://theforumathleticclub.com/ponce-city-market-schedule",
       target: "_blank",
       highlight: false,
@@ -584,6 +585,9 @@ const Offerings = ({ onBookSession }: { onBookSession: () => void }) => {
                   ))}
                 </ul>
 
+                {offer.note && (
+                  <p className="text-gray-500 text-sm italic mb-4">{offer.note}</p>
+                )}
                 {offer.onCtaClick ? (
                   <button
                     onClick={offer.onCtaClick}

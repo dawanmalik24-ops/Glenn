@@ -15,7 +15,7 @@ const StoryPage = () => {
           name="keywords"
           content="personal trainer Atlanta, strength coach Atlanta, fitness coach Ponce City Market, ACE certified trainer Atlanta, Glenn Byrd trainer"
         />
-        <link rel="canonical" href="https://coachgofficial.com/glenn-byrd-personal-trainer-atlanta" />
+        <link rel="canonical" href="https://coachgofficial.com/meetglenn" />
       </Helmet>
 
       <div className="bg-[#050505] text-white min-h-screen font-sans">

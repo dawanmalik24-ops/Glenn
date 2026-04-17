@@ -14,7 +14,7 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/training" element={<TrainingPage />} />
-          <Route path="/glenn-byrd-personal-trainer-atlanta" element={<StoryPage />} />
+          <Route path="/meetglenn" element={<StoryPage />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

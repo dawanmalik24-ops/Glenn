@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import TrainingPage from "./TrainingPage.tsx";
-import StoryPage from "./StoryPage.tsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
@@ -14,7 +13,6 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/training" element={<TrainingPage />} />
-          <Route path="/meetglenn" element={<StoryPage />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

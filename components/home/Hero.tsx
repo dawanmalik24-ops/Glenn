@@ -37,9 +37,6 @@ export default function Hero() {
             MOVEMENT IS <br />
             <span className="text-gradient-gold">MEDICINE.</span>
           </h1>
-          <p className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Get Stronger, Leaner, and More Athletic in 8–12 Weeks.
-          </p>
           <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
             1-on-1 personal training at The Forum Athletic Club, Ponce City Market, Atlanta with
             ACE-certified personal trainer Glenn Byrd.

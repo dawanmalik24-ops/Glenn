@@ -10,15 +10,15 @@ const GOOGLE_REVIEW_URL = 'https://g.page/r/CWVhhylbz_L8EBM/review'
 const testimonials = [
   {
     quote:
-      "Glenn didn't just change my body; he changed my mindset. I'm stronger than I've ever been, both physically and mentally.",
-    author: 'Sarah J.',
-    role: '1-on-1 Coaching Client',
+      "Glenn's workouts are the best! Something new and challenging every time, he is always pushing me to get stronger and I laugh at least 10 times a session. I may hate it in the moment but love the results.",
+    author: 'Casey Henritz',
+    role: 'Google Review',
   },
   {
     quote:
-      'The most intentional trainer I\'ve ever worked with. He understands the mental game as much as the physical. Highly recommend.',
-    author: 'Marcus T.',
-    role: 'In-Person Athlete',
+      "Glenn always puts together a great 60 minute workout that targets more than just your standard leg day muscles. He's a great instructor!",
+    author: 'Naomi Nagel',
+    role: 'Google Review',
   },
   {
     quote:

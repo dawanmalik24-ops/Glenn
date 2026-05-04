@@ -1,6 +1,4 @@
-import { Instagram, Mail, Star } from 'lucide-react'
-
-const GOOGLE_REVIEW_URL = 'https://g.page/r/CWVhhylbz_L8EBM/review'
+import { Instagram, Mail } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -13,16 +11,6 @@ export default function Footer() {
             </p>
             <p className="text-gray-500 text-sm">© 2026 Glenn Byrd. All rights reserved.</p>
           </div>
-
-          <a
-            href={GOOGLE_REVIEW_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-gold hover:bg-gold-light text-black px-6 py-3 rounded-full text-sm font-bold transition-all transform hover:scale-105"
-          >
-            <Star size={16} fill="currentColor" />
-            Leave a Google Review
-          </a>
 
           <div className="flex items-center gap-6">
             <a

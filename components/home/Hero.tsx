@@ -10,7 +10,7 @@ export default function Hero() {
   const showBanner = new Date() < BANNER_EXPIRY
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-20 pb-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-[#050505]" />
 
       {/* Right-side photo — desktop only */}
@@ -27,12 +27,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/40" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto pl-4 pr-6 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl"
+          className="max-w-3xl -mt-10"
         >
           <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest uppercase mb-6 text-gold">
             ACE-Certified Personal Trainer · Atlanta, GA

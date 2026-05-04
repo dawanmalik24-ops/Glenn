@@ -4,7 +4,11 @@ import { motion } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
+const BANNER_EXPIRY = new Date('2026-05-31T00:00:00-04:00')
+
 export default function Hero() {
+  const showBanner = new Date() < BANNER_EXPIRY
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-[#050505]" />
@@ -56,6 +60,27 @@ export default function Hero() {
               My Story
             </a>
           </div>
+
+          {showBanner && (
+            <motion.a
+              href="https://posh.vip/e/do-not-disturb-summer-wellness-festival-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0d0d0d] border text-sm text-white/85 hover:text-white transition-colors"
+              style={{ animation: 'gold-glow-pulse 2.8s ease-in-out infinite' }}
+            >
+              🏋🏾 <span className="font-semibold tracking-wide">BYRD BOOTCAMP</span>
+              <span className="text-white/40">·</span>
+              Do Not Disturb Summer Wellness Festival
+              <span className="text-white/40">·</span>
+              May 30
+              <span className="text-white/40">·</span>
+              Ponce City Market Lawn
+            </motion.a>
+          )}
         </motion.div>
       </div>
 

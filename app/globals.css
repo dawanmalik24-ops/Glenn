@@ -23,3 +23,14 @@
     @apply bg-linear-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent;
   }
 }
+
+@keyframes gold-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 6px 1px rgba(212, 175, 55, 0.25);
+    border-color: rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 14px 3px rgba(212, 175, 55, 0.5);
+    border-color: rgba(212, 175, 55, 0.9);
+  }
+}

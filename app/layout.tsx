@@ -15,6 +15,36 @@ const outfit = Outfit({
   display: 'swap',
 })
 
+const eventSchemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'Do Not Disturb Summer Wellness Festival — Byrd Bootcamp',
+  description:
+    'Join Coach Glenn Byrd for Byrd Bootcamp at the Do Not Disturb Summer Wellness Festival. A high-energy outdoor workout experience at Ponce City Market Lawn.',
+  startDate: '2026-05-30',
+  endDate: '2026-05-30',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'Place',
+    name: 'Ponce City Market Lawn',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '675 Ponce De Leon Ave NE',
+      addressLocality: 'Atlanta',
+      addressRegion: 'GA',
+      postalCode: '30308',
+      addressCountry: 'US',
+    },
+  },
+  organizer: {
+    '@type': 'Person',
+    name: 'Glenn Byrd',
+    url: 'https://coachgofficial.com',
+  },
+  url: 'https://posh.vip/e/do-not-disturb-summer-wellness-festival-1',
+}
+
 const schemaData = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -82,6 +112,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchemaData) }}
         />
       </head>
       <body>{children}</body>

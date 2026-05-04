@@ -20,8 +20,9 @@ export default function Hero() {
           alt="Glenn Byrd ACE-certified personal trainer Atlanta at The Forum Athletic Club"
           fill
           priority
+          quality={100}
           sizes="50vw"
-          className="object-cover object-center brightness-125 contrast-105"
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/40" />

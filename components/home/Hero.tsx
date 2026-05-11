@@ -35,9 +35,6 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl -mt-10"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest uppercase mb-6 text-gold">
-            ACE-Certified Personal Trainer · Atlanta, GA
-          </span>
           <h1 className="font-display text-6xl md:text-8xl font-extrabold leading-[0.9] mb-4 tracking-tighter">
             MOVEMENT IS <br />
             <span className="text-gradient-gold">MEDICINE.</span>

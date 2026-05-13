@@ -1,9 +1,27 @@
 import { Instagram, Mail } from 'lucide-react'
 
+const serviceLinks = [
+  { label: 'Weight Loss Training', href: '/weight-loss-trainer-atlanta' },
+  { label: 'Strength Training', href: '/strength-training-atlanta' },
+  { label: 'Athletic Performance', href: '/athletic-performance-trainer-atlanta' },
+  { label: 'Bodybuilding Coaching', href: '/bodybuilding-coach-atlanta' },
+  { label: 'Ponce City Market Trainer', href: '/personal-trainer-ponce-city-market' },
+]
+
 export default function Footer() {
   return (
-    <footer className="py-12 border-t border-white/10 bg-black">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col gap-8">
+    <footer className="border-t border-white/10 bg-black">
+      <div className="max-w-7xl mx-auto px-6 py-10 border-b border-white/5">
+        <p className="text-xs font-bold uppercase tracking-widest text-gray-600 mb-4">Explore</p>
+        <div className="flex flex-wrap gap-x-8 gap-y-2">
+          {serviceLinks.map((link) => (
+            <a key={link.href} href={link.href} className="text-sm text-gray-500 hover:text-gold transition-colors">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col gap-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <p className="font-display text-xl font-extrabold tracking-tighter mb-2">
@@ -51,3 +69,4 @@ export default function Footer() {
     </footer>
   )
 }
+

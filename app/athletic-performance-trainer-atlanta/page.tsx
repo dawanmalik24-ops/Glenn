@@ -36,7 +36,7 @@ const schema = {
 export const metadata: Metadata = {
   title: 'Athletic Performance Trainer Atlanta | Glenn Byrd',
   description:
-    "Take your game to the next level with Glenn Byrd's Fast-Twitch Method at The Forum Athletic Club, Ponce City Market Atlanta. Speed, agility, and explosive power training.",
+    "Take your game further with Glenn Byrd's Fast-Twitch Method at The Forum, Ponce City Market Atlanta. Speed, agility, and explosive power training.",
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://coachgofficial.com/athletic-performance-trainer-atlanta' },
   openGraph: {

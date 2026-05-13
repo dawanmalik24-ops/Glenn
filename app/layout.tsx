@@ -66,9 +66,9 @@ const schemaData = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://coachgofficial.com'),
-  title: 'Glenn Byrd | ACE-Certified Personal Trainer | Ponce City Market Atlanta',
+  title: 'Glenn Byrd | Personal Trainer Atlanta | Ponce City Market',
   description:
-    'Train 1-on-1 with ACE-Certified Coach Glenn Byrd at The Forum Athletic Club, Ponce City Market Atlanta. Strength, conditioning, and Fast Twitch classes. Book today at coachgofficial.com',
+    'Train 1-on-1 with ACE-Certified Coach Glenn Byrd at The Forum Athletic Club, Ponce City Market Atlanta. Strength, conditioning, and Fast Twitch classes.',
   robots: {
     index: true,
     follow: true,
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://coachgofficial.com',
-    title: 'Glenn Byrd | ACE-Certified Personal Trainer | Ponce City Market Atlanta',
+    title: 'Glenn Byrd | Personal Trainer Atlanta | Ponce City Market',
     description:
       'Train 1-on-1 with ACE-Certified Coach Glenn Byrd at The Forum Athletic Club, Ponce City Market Atlanta. Strength, conditioning, and Fast Twitch classes.',
     siteName: 'Coach G — Glenn Byrd Personal Training',
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Glenn Byrd | ACE-Certified Personal Trainer | Ponce City Market Atlanta',
+    title: 'Glenn Byrd | Personal Trainer Atlanta | Ponce City Market',
     description:
       'Train 1-on-1 with ACE-Certified Coach Glenn Byrd at The Forum Athletic Club, Ponce City Market Atlanta.',
     images: ['https://i.imgur.com/BZ9c0Nn.jpeg'],

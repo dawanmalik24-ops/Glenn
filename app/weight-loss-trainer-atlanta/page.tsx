@@ -36,7 +36,7 @@ const schema = {
 export const metadata: Metadata = {
   title: 'Weight Loss Personal Trainer Atlanta | Glenn Byrd',
   description:
-    'Lose weight with ACE-certified personal trainer Glenn Byrd at The Forum Athletic Club, Ponce City Market Atlanta. Science-backed fat loss coaching tailored to your goals.',
+    'Lose weight with ACE-certified trainer Glenn Byrd at The Forum, Ponce City Market Atlanta. Science-backed fat loss coaching tailored to your goals.',
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://coachgofficial.com/weight-loss-trainer-atlanta' },
   openGraph: {

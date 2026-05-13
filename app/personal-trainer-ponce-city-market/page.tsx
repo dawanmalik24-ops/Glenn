@@ -54,7 +54,7 @@ const schema = {
 export const metadata: Metadata = {
   title: 'Personal Trainer Ponce City Market | Glenn Byrd Atlanta',
   description:
-    "Train with ACE-certified personal trainer Glenn Byrd at The Forum Athletic Club, Ponce City Market in Atlanta's Old Fourth Ward. 1-on-1 and group sessions available.",
+    "Train with ACE-certified trainer Glenn Byrd at The Forum Athletic Club, Ponce City Market, Atlanta. 1-on-1 sessions in the Old Fourth Ward.",
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://coachgofficial.com/personal-trainer-ponce-city-market' },
   openGraph: {

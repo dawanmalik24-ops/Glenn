@@ -36,7 +36,7 @@ const schema = {
 export const metadata: Metadata = {
   title: 'Bodybuilding Coach Atlanta | Glenn Byrd Personal Trainer',
   description:
-    'Build your best physique with Atlanta bodybuilding coach Glenn Byrd at Ponce City Market. Hypertrophy programming and competition prep for serious athletes.',
+    'Build your best physique with Atlanta bodybuilding coach Glenn Byrd at Ponce City Market. Hypertrophy programming and competition prep for athletes.',
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://coachgofficial.com/bodybuilding-coach-atlanta' },
   openGraph: {

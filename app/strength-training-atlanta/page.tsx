@@ -78,7 +78,7 @@ export default function StrengthTrainingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/#contact"
+                href="https://theforumathleticclub.com/schedule"
                 className="group bg-gold hover:bg-gold-light text-black px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 transition-all"
               >
                 Book a Session <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
@@ -236,7 +236,7 @@ export default function StrengthTrainingPage() {
               best personal trainers.
             </p>
             <Link
-              href="/#contact"
+              href="https://theforumathleticclub.com/schedule"
               className="group bg-gold hover:bg-gold-light text-black px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-2 transition-all"
             >
               Book a Session <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

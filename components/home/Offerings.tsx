@@ -194,7 +194,7 @@ function PromoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
           </p>
           <div className="space-y-4">
             <a
-              href="https://theforumathleticclub.com/ponce-city-market-schedule"
+              href="https://theforumathleticclub.com/schedule"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full bg-gold hover:bg-gold-light text-black font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02]"
@@ -309,7 +309,7 @@ export default function Offerings() {
                 Most clients start with Fast Twitch Intro class before committing to coaching.
               </p>
               <a
-                href="https://theforumathleticclub.com/ponce-city-market-schedule"
+                href="https://theforumathleticclub.com/schedule"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-4 rounded-xl font-bold text-center transition-all bg-white/10 text-white hover:bg-white/20"

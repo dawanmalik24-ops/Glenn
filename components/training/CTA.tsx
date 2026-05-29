@@ -23,7 +23,7 @@ export default function CTA() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://theforumathleticclub.com/ponce-city-market-schedule"
+              href="https://theforumathleticclub.com/schedule"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-gold hover:bg-gold-light text-black px-10 py-5 rounded-full font-bold text-lg flex items-center justify-center gap-2 transition-all"

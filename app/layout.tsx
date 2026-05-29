@@ -42,7 +42,7 @@ const eventSchemaData = {
     name: 'Glenn Byrd',
     url: 'https://coachgofficial.com',
   },
-  url: 'https://posh.vip/e/do-not-disturb-summer-wellness-festival-1',
+  url: 'https://www.eventbrite.com/e/do-not-disturb-summer-wellness-festival-tickets-1990647421023?aff=oddtdtcreator',
 }
 
 const schemaData = {

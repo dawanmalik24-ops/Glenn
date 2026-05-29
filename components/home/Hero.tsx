@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
-const BANNER_EXPIRY = new Date('2026-05-31T00:00:00-04:00')
+const BANNER_EXPIRY = new Date('2026-06-07T00:00:00-04:00')
 
 export default function Hero() {
   const showBanner = new Date() < BANNER_EXPIRY
@@ -45,7 +45,7 @@ export default function Hero() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="#offerings"
+              href="https://theforumathleticclub.com/schedule"
               className="group bg-gold hover:bg-gold-light text-black px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 transition-all"
             >
               Book a Session with Glenn
@@ -61,7 +61,7 @@ export default function Hero() {
 
           {showBanner && (
             <motion.a
-              href="https://posh.vip/e/do-not-disturb-summer-wellness-festival-1"
+              href="https://www.eventbrite.com/e/do-not-disturb-summer-wellness-festival-tickets-1990647421023?aff=oddtdtcreator"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 10 }}
@@ -73,7 +73,7 @@ export default function Hero() {
               {/* Mobile: stacked two-line layout */}
               <span className="flex flex-col md:hidden gap-0.5">
                 <span className="text-sm font-semibold tracking-wide">🏋🏾 BYRD BOOTCAMP</span>
-                <span className="text-xs text-white/70 leading-snug">Do Not Disturb Summer Wellness Festival · May 30 · Ponce City Market Lawn</span>
+                <span className="text-xs text-white/70 leading-snug">Do Not Disturb Summer Wellness Festival · June 6 · Ponce City Market Lawn</span>
               </span>
               {/* Desktop: single line */}
               <span className="hidden md:inline-flex items-center gap-2 text-sm">
@@ -81,7 +81,7 @@ export default function Hero() {
                 <span className="text-white/40">·</span>
                 Do Not Disturb Summer Wellness Festival
                 <span className="text-white/40">·</span>
-                May 30
+                June 6
                 <span className="text-white/40">·</span>
                 Ponce City Market Lawn
               </span>
